@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blocmarks</title>
+    <%= csrf_meta_tags %>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Trade+Winds" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Akronim" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body class="container-fluid">
+    <nav>
+      <li class="logo">
+        <%= link_to 'Blocmarks', root_path %>
+      </li>
+      <div class="pull-right nav nav-pills">
+        <li><a href="#">Bookmarks</a></li>
+        <li><a href="#">Sign Up</a></li>
+        <li><a href="#">Sign In</a></li>
+      </div>
+    </nav>
+
+    <% if flash[:notice].present? %>
+      <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= flash[:notice] %>
+      </div>
+    <% elsif flash[:alert].present? %>
+      <div class="alert alert-danger alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <%= flash[:alert] %>
+      </div>
+    <% end %>
+
+    <%= yield %>
+
+  </body>
+</html>
