@@ -18,9 +18,17 @@
         <%= link_to 'Blocmarks', root_path %>
       </li>
       <div class="pull-right nav nav-pills">
+        <% if Rails.env.development? %>
+          <li class="<%= active_class(letter_opener_web_path) %>"><%= link_to 'Mail', letter_opener_web_path, target: :_blank %></li>
+        <% end %>
         <li><a href="#">Bookmarks</a></li>
-        <li><a href="#">Sign Up</a></li>
-        <li><a href="#">Sign In</a></li>
+        <% if user_signed_in? %>
+          <li class="<%= active_class(new_user_registration_path) %>"><%= link_to 'Sign Up', new_user_registration_path %></li>
+          <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li class="<%= active_class(new_user_registration_path) %>"><%= link_to 'Sign Up', new_user_registration_path, remote: true %></li>
+          <li class="<%= active_class(new_user_session_path) %>"><%= link_to 'Sign In', new_user_session_path %></li>
+        <% end %>
       </div>
     </nav>
 
@@ -35,6 +43,8 @@
         <%= flash[:alert] %>
       </div>
     <% end %>
+
+    <div id="modal" class="modal modal-transparent fade"></div>
 
     <%= yield %>
 

@@ -24,6 +24,9 @@
   font-size: 2rem;
   height: 100vh;
   width: 100vw;
+  a {
+    color: inherit;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -69,9 +72,6 @@ nav {
   font-size: 4rem;
   height: 62.5px;
   padding: 0.5rem 1rem 0;
-  a {
-    color: inherit;
-  }
   a:active {
     text-decoration: none;
   }
@@ -84,10 +84,16 @@ nav {
   //font-family: 'Trade Winds', cursive;
   font-size: 2rem;
   padding-top: 0.6rem;
-  a {
-    color: inherit;
-  }
   a:hover {
     color: rgba(20,48,72,0.7);
   }
+}
+
+.modal-transparent .modal-content {
+  background-color: rgba(20,48,72,0.7);
+}
+
+.modal-transparent .close {
+    color: red;
+    opacity: 1;
 }
