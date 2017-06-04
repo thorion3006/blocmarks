@@ -1,0 +1,21 @@
+<%= link_to edit_topic_path, remote: true do %>
+  <div class="new text-center">
+    <h1><%= @topic.title %></h1>
+    <small>(Click here to edit the topic)</small>
+    <div class="tooltip-wrapper disabled" data-title="Topic needs to be empty to delete." data-placement="right">
+      <%= link_to 'Delete', topic_path, method: :delete, class: "btn btn-md btn-danger #{disabled}", data: {confirm: 'Are you sure you want to delete this post?'} %>
+    </div>
+  </div>
+<% end %>
+
+<div class="container">
+  <% paginate.length.times do |n| %>
+    <div class="row">
+      <% paginate[n].each do |bookmark| %>
+        <div class="col-sm-2 bookmarks show">
+          <%= bookmark.url %>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

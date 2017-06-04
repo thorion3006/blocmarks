@@ -6,7 +6,12 @@ Rails.application.routes.draw do
                       passwords: 'users/passwords',
                       confirmations: 'users/confirmations'
                     }
-  root 'welcome#index'
+
+  resources :topics
+
+  get 'home' => 'welcome#index'
+
+  root 'root#root_toggle'
 
   # For LetterOpenerWeb
   mount LetterOpenerWeb::Engine, at: "/letter_opener" if Rails.env.development?

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Blocmarks</title>
+    <title>Blocmarks: Share your favorite sites with the world.</title>
+    <%= favicon_link_tag 'favicon.ico' %>
     <%= csrf_meta_tags %>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -21,8 +22,8 @@
         <% if Rails.env.development? %>
           <li class="<%= active_class(letter_opener_web_path) %>"><%= link_to 'Mail', letter_opener_web_path, target: :_blank %></li>
         <% end %>
-        <li><a href="#">Bookmarks</a></li>
         <% if user_signed_in? %>
+          <li><%= link_to "My Blocmarks", "#" %></li>
           <li class="<%= active_class(edit_user_registration_path) %>"><%= link_to 'Edit Profile', edit_user_registration_path %></li>
           <li><%= link_to 'Sign Out', destroy_user_session_path, method: :delete %></li>
         <% else %>

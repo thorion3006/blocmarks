@@ -1,0 +1,27 @@
+<%= link_to new_topic_path, remote: true do %>
+  <div class="new text-center">
+    <h1>Topics</h1>
+    <small>(Click here to add a new topic)</small>
+  </div>
+<% end %>
+<br>
+<div class="container">
+  <% @topics.each do |topic| %>
+    <div class="topic">
+      <h3><%= link_to topic.title, topic_path(topic) %></h3>
+      <div class="owl-carousel owl-theme">
+        <% topic.bookmarks.each do |bookmark| %>
+          <div class="bookmarks">
+            <%= bookmark.url %>
+          </div>
+        <% end %>
+      </div>
+      <div class="left-arrow">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </div>
+      <div class="right-arrow">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </div>
+    </div>
+  <% end %>
+</div>

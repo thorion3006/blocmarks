@@ -10,6 +10,8 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *= require_tree
+ *= require owl.carousel
+ *= require owl.theme
  */
 @import "bootstrap-sprockets";
 @import "bootstrap";
@@ -27,40 +29,23 @@
   a {
     color: inherit;
   }
+  a:active {
+    text-decoration: none;
+  }
+  a:hover {
+    text-decoration: none;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Trade Winds', cursive;
 }
 
-h1, .h1 {
-  font-size: 8rem;
-}
-
-h2, .h2 {
- font-size: 7rem;
-}
-
-h3, .h3 {
-  font-size: 6rem;
-}
-
-h4, .h4 {
-  font-size: 5rem;
-}
-
-h5, .h5 {
-  font-size: 4rem;
-}
-
-h6, .h6 {
-  font-size: 3rem;
-}
-
 nav {
   border-radius: 4px;
   background-color: rgba(20,48,72,0.7);
   height: 62.5px;
+  margin-bottom: 3rem;
 }
 
 .logo {
@@ -72,12 +57,6 @@ nav {
   font-size: 4rem;
   height: 62.5px;
   padding: 0.5rem 1rem 0;
-  a:active {
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: none;
-  }
 }
 
 .nav {
