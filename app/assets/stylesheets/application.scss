@@ -16,7 +16,7 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
-.container-fluid {
+.main {
   //background: rgba(210,255,82,1);
   //background: linear-gradient(135deg, rgba(210,255,82,1) 0%, rgba(0,121,145,1) 100%);
   background: rgba(167,217,15,1);
@@ -24,8 +24,9 @@
   color: #EEEEEE;
   font-family: 'Kaushan Script', cursive;
   font-size: 2rem;
-  height: 100vh;
-  width: 100vw;
+  min-height: 100vh;
+  height: auto;
+  width: 100%;
   a {
     color: inherit;
   }

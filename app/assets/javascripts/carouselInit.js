@@ -10,7 +10,8 @@ $(document).ready(function() {
       margin:10,
       autoplay:true,
       autoplayTimeout:1000,
-      autoplayHoverPause:true
+      autoplayHoverPause:true,
+      autoWidth:true
     });
     // Carousel Navigation
     $('.left-arrow').click(function() {

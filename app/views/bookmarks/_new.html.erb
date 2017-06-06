@@ -2,8 +2,8 @@
   <div class="modal-content">
     <div class="modal-header">
       <button class="close" data-dismiss="modal">X</button>
-      <h1>Add new topic</h1>
+      <h1>Add new bookmark</h1>
     </div>
-    <%= render partial: 'form' %>
+    <%= render partial: 'form', locals: {url: topic_bookmarks_path(@topic) %>
   </div>
 </div>

@@ -7,7 +7,9 @@ Rails.application.routes.draw do
                       confirmations: 'users/confirmations'
                     }
 
-  resources :topics
+  resources :topics do
+    resources :bookmarks, except: :index
+  end
 
   get 'home' => 'welcome#index'
 

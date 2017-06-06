@@ -1,10 +1,10 @@
 <div class="form-horizontal">
-  <%= form_for @topic do |f| %>
+  <%= form_for(@bookmark, url: url) do |f| %>
   <div class="modal-body">
     <div class="form-group">
-      <%= f.label :title, class: 'col-sm-3 control-label' %>
+      <%= f.label :url, class: 'col-sm-3 control-label' %>
       <div class="col-sm-8">
-        <%= f.text_field :title, class: 'form-control', placeholder: "Enter topic title" %>
+        <%= f.url_field :url, class: 'form-control', placeholder: "Enter topic title" %>
       </div>
     </div>
   </div>
