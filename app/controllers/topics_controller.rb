@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+  before_action :authenticate_user!
   respond_to :js
 
   def index
@@ -52,7 +53,7 @@ class TopicsController < ApplicationController
   end
 
   private
-  
+
   def topic_params
     params.require(:topic).permit(:title)
   end

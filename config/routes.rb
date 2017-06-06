@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get 'home' => 'welcome#index'
 
+  post :incoming, to: 'incoming#create'
+
   root 'root#root_toggle'
 
   # For LetterOpenerWeb
