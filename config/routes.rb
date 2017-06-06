@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   resources :bookmarks, only: [] do
     resources :likes, only: [:index, :create, :destroy]
   end
+  resources :users, only: :show
 
   get 'home' => 'welcome#index'
 
