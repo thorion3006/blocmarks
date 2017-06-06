@@ -6,7 +6,7 @@ if Rails.env.production?
     authentication: :plain,
     user_name:      ENV['MAILGUN_SMTP_LOGIN'],
     password:       ENV['MAILGUN_SMTP_PASSWORD'],
-    domain:         ENV['MAILGUN_DOMAIN'],
+    domain:         'blocmarks2017.herokuapp.com',
     content_type:      'text/html'
   }
   ActionMailer::Base.raise_delivery_errors = true
