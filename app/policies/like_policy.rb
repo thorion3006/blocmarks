@@ -1,4 +1,4 @@
-class BookmarksPolicy < ApplicationPolicy
+class LikePolicy < ApplicationPolicy
   class Scope < Scope
     def resolve
       scope

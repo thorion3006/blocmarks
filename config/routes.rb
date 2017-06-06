@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   resources :topics do
     resources :bookmarks, except: :index
   end
+  resources :bookmarks, only: [] do
+    resources :likes, only: [:index, :create, :destroy]
+  end
 
   get 'home' => 'welcome#index'
 

@@ -11,8 +11,11 @@
       <h3><%= link_to topic.title, topic_path(topic) %></h3>
       <div class="owl-carousel owl-theme">
         <% topic.bookmarks.each do |bookmark| %>
-          <div class="bookmarks">
-            <%= link_to bookmark.url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/im)[1], topic_bookmark_path(topic, bookmark), remote: true %>
+          <div>
+            <div class="bookmarks">
+              <%= link_to bookmark.url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/im)[1], topic_bookmark_path(topic, bookmark), remote: true %>
+            </div>
+            <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
           </div>
         <% end %>
       </div>
