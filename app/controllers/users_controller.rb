@@ -4,17 +4,16 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @user_bookmarks = @user.bookmarks
-    topics = {}
+    @used_topics = []
     @user_bookmarks.each do |bookmark|
-      topics[bookmark.topic] = 1
+      @used_topics << bookmark.topic unless @used_topics.include?(bookmark.topic)
     end
-    @used_topics = topics.keys
+
 
     @liked_bookmarks = @user.likes
-    topics = {}
+    @liked_topics = []
     @liked_bookmarks.each do |like|
-      topics[like.bookmark.topic] = 1
+      @liked_topics << like.bookmark.topic unless @liked_topics.include?(like.bookmark.topic)
     end
-    @liked_topics = topics.keys
   end
 end
