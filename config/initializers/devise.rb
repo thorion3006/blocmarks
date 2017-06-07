@@ -8,7 +8,7 @@ Devise.setup do |config|
   # by default. You can change it below and use your own secret key.
   # config.secret_key = '59c98bdd567875264b706cb50a1cffcc4552af29e75f8abace8f065e5c65444522a359e2d9233f02e61f10a398e0a8ad15d12408b6a8a2cbfd84d7a09875fa11'
   config.secret_key = '<%= ENV["SECRET_KEY_BASE"] %>' if Rails.env == 'production'
-  
+
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
@@ -123,7 +123,7 @@ Devise.setup do |config|
   # able to access the website for two days without confirming their account,
   # access will be blocked just in the third day. Default is 0.days, meaning
   # the user cannot access the website without confirming their account.
-  config.allow_unconfirmed_access_for = 2.days
+  config.allow_unconfirmed_access_for = 0.days
 
   # A period that the user is allowed to confirm their account before their
   # token becomes invalid. For example, if set to 3.days, the user can confirm

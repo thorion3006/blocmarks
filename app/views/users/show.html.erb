@@ -9,12 +9,17 @@
       <h3><%= link_to topic.title, topic_path(topic) %></h3>
       <div class="owl-carousel owl-theme">
         <% topic.bookmarks.each do |bookmark| %>
-          <div>
-            <div class="bookmarks">
-              <%= link_to bookmark.url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/im)[1], topic_bookmark_path(topic, bookmark), remote: true %>
+          <% if @user_bookmarks.include?(bookmark) %>
+            <div class="bookmark-wrapper">
+              <div class="bookmarks">
+                <%= link_to topic_bookmark_path(topic, bookmark), remote: true do %>
+                  <p><%= bookmark.url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/im)[1] %></p>
+                  <a href="<%= bookmark.url %>" class="urlembed"></a>
+                <% end %>
+              </div>
+              <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
             </div>
-            <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
-          </div>
+          <% end %>
         <% end %>
       </div>
       <div class="left-arrow">
@@ -36,12 +41,17 @@
       <h3><%= link_to topic.title, topic_path(topic) %></h3>
       <div class="owl-carousel owl-theme">
         <% topic.bookmarks.each do |bookmark| %>
-          <div>
-            <div class="bookmarks">
-              <%= link_to bookmark.url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/im)[1], topic_bookmark_path(topic, bookmark), remote: true %>
+          <% if @liked_bookmarks.include?(bookmark.likes.find_by(user_id: @user.id)) %>
+            <div class="bookmark-wrapper">
+              <div class="bookmarks">
+                <%= link_to topic_bookmark_path(topic, bookmark), remote: true do %>
+                  <p><%= bookmark.url.match(/^(?:https?:\/\/)?(?:[^@\n]+@)?(?:www\.)?([^:\/\n]+)/im)[1] %></p>
+                  <a href="<%= bookmark.url %>" class="urlembed"></a>
+                <% end %>
+              </div>
+              <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
             </div>
-            <%= render partial: 'likes/like', locals: { bookmark: bookmark } %>
-          </div>
+          <% end %>
         <% end %>
       </div>
       <div class="left-arrow">

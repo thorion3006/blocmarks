@@ -83,11 +83,17 @@ nav {
   padding-bottom: 3rem;
 }
 
+.bookmark-wrapper {
+  width: 300px;
+}
+
 .bookmarks {
   background-color: rgba(20,48,72,0.5);
   border-radius: 4px;
+  height: 300px;
   overflow: hidden;
   padding: 1rem;
+  width: 300px;
 }
 
 .left-arrow {
@@ -96,7 +102,7 @@ nav {
   cursor: pointer;
   float: left;
   font-size: 2.5rem;
-  transform: translate(-150%, -120%);
+  transform: translate(-150%, -600%);
 }
 
 .right-arrow {
@@ -105,5 +111,22 @@ nav {
   cursor: pointer;
   float: right;
   font-size: 2.5rem;
-  transform: translate(150%, -120%);
+  transform: translate(150%, -600%);
+}
+
+.embed {
+  .img {
+    max-height: 100px !important;
+    //width: 100px !important;
+  }
+  .title {
+    max-height: 50px !important;
+  }
+  max-height: 250px;
+  overflow: hidden;
+  width: auto;
+}
+
+.center-btn {
+  margin: 5px 40%;
 }
