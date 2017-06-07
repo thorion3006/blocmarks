@@ -1,5 +1,6 @@
 class TopicsController < ApplicationController
   before_action :authenticate_user!
+  before_filter :find_topic, only: :show
   respond_to :js
 
   def index
@@ -7,7 +8,7 @@ class TopicsController < ApplicationController
   end
 
   def show
-    @topic = Topic.find(params[:id])
+    @topic = Topic.friendly.find(params[:id])
   end
 
   def new
@@ -27,11 +28,11 @@ class TopicsController < ApplicationController
   end
 
   def edit
-    @topic = Topic.find(params[:id])
+    @topic = Topic.friendly.find(params[:id])
   end
 
   def update
-    @topic = Topic.find(params[:id])
+    @topic = Topic.friendly.find(params[:id])
     @topic.assign_attributes(topic_params)
     if @topic.save
       flash[:notice] = 'Topic was updated successfully.'
@@ -42,7 +43,7 @@ class TopicsController < ApplicationController
   end
 
   def destroy
-    @topic = Topic.find(params[:id])
+    @topic = Topic.friendly.find(params[:id])
     if @topic.destroy
       flash[:notice] = "\"#{@topic.title}\" was deleted successfully."
       redirect_to topics_path
@@ -56,5 +57,12 @@ class TopicsController < ApplicationController
 
   def topic_params
     params.require(:topic).permit(:title)
+  end
+
+  def find_topic
+    @topic = Topic.friendly.find(params[:id])
+    if request.path != topic_path(@topic)
+      return redirect_to @topic, status: :moved_permanently
+    end
   end
 end
